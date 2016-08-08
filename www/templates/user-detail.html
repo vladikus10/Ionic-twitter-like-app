@@ -1,0 +1,22 @@
+<ion-view view-title="User">
+  <ion-content class="padding">
+    <div class="list card">
+	  <div class="item item-avatar">
+		<img src="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-8/256/User-blue-icon.png">
+		<h2>{{user.username}}</h2>
+	  </div>
+	  <div class="item item-body">
+		<p>Tweets: {{user.tweetsnum}} Followers: {{user.followersnum}} Following: {{user.followingnum}}</p>
+		<button class="button icon ion-person-stalker" ng-click="followClick()" id="followButton" ng-hide="user.username == me"></button>
+	  </div>
+	</div>
+	<ion-list>
+      <ion-item class="item-avatar item-icon-right" ng-repeat="tweet in tweets" type="item-text-wrap">
+        <img src="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-8/256/User-blue-icon.png">
+        <h2>{{tweet.userid}}</h2>
+        <p>{{tweet.message}}</p>
+		<p am-time-ago="tweet.posttime" am-prepocess="unix"></p>
+      </ion-item>
+    </ion-list>
+  </ion-content> 
+</ion-view>

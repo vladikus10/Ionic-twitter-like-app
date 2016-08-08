@@ -1,0 +1,13 @@
+<ion-view view-title="Favorites">
+  <ion-content class="padding">
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="fav in favoriteTweets" type="item-text-wrap" href="#/tab/favorites/{{fav.id}}">
+        <img src="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-8/256/User-blue-icon.png">
+        <h2>{{fav.userid}}</h2>
+        <p>{{fav.message}}</p>
+		<p am-time-ago="tweet.posttime" am-prepocess="unix"></p>
+        <i class="icon ion-android-favorite icon-accessory">{{fav.favs}}</i>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

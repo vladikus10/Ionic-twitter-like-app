@@ -1,0 +1,19 @@
+<ion-view view-title="Profile">
+  <ion-content>
+    <div class="list card">
+	  <div class="item item-avatar">
+		<img src="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-8/256/User-blue-icon.png">
+		<h2>{{user.username}}</h2>
+	  </div>
+	  <label class="item item-input">
+		<input type="password" placeholder="Current Password" id="cPassword">
+	  </label>
+	  <label class="item item-input">
+		<input type="password" placeholder="New Password" id="nPassword">
+	  </label>
+	  <button class="button button-positive" ng-click="changePassword()">
+			Change Password
+	</button>
+	</div>
+  </ion-content>
+</ion-view>

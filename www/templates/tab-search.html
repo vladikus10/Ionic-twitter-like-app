@@ -1,0 +1,32 @@
+<ion-view view-title="Search">
+	<ion-header-bar align-title="left" class="item-input-inset" style="padding-top: 112px; padding-bottom: 20px">
+      <label class="item-input-wrapper">
+        <i class="icon ion-ios7-search placeholder-icon"></i>
+        <input type="text" placeholder="Search" id="searchText">
+      </label>
+      <button class="button icon ion-ios-search" ng-click="searchClick()"></button>
+	  <select id="searchSelect" style="height: 35px">
+		  <option value="1" selected>Tweets</option>
+		  <option value="2">Users</option>
+      </select>
+   </ion-header-bar> 
+  <ion-content>
+	</br>
+	</br>
+	<ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="tweet in tweets" type="item-text-wrap" href="#/tab/search/tweet/{{tweet.id}}">
+        <img src="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-8/256/User-blue-icon.png">
+		<p>ID:{{tweet.id}}</p>
+        <h2>{{tweet.userid}}</h2>
+        <p>{{tweet.message}}</p>
+		<p am-time-ago="tweet.posttime" am-prepocess="unix"></p>
+        <i class="icon ion-android-favorite icon-accessory">{{tweet.favs}}</i>
+      </ion-item>
+	  <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="user in users" type="item-text-wrap" href="#/tab/search/user/{{user.username}}">
+        <img src="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-8/256/User-blue-icon.png">
+        <h2>{{user.username}}</h2>
+        <p>Tweets: {{user.tweetsnum}} Followers: {{user.followersnum}} Following: {{user.followingnum}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

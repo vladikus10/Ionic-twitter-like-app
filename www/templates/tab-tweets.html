@@ -1,0 +1,26 @@
+<ion-view view-title="Tweets">
+  <ion-content>
+    <ion-refresher
+			pulling-text="Fetch more tweets"
+			on-refresh="updateTweets()">
+	</ion-refresher>
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="tweet in tweets" type="item-text-wrap" href="#/tab/tweets/{{tweet.id}}">
+        <img ng-src="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-8/256/User-blue-icon.png"></img>
+        <h2>{{tweet.userid}}</h2>
+        <p>{{tweet.message}}</p>
+		<p am-time-ago="tweet.posttime" am-prepocess="unix"></p>
+        <i class="icon ion-android-favorite icon-accessory">{{tweet.favs}}</i>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  <ion-footer-bar align-title="left" class="item-input-inset">
+      <label class="item-input-wrapper">
+        <i class="icon ion-ios7-search placeholder-icon"></i>
+        <input type="text" placeholder="Tweet" id="tweetMessage" ng-model="currentUser.message">
+      </label>
+      <button class="button button-positive" ng-click="postTweet()">
+       Post
+      </button>
+    </ion-footer-bar> 
+</ion-view>

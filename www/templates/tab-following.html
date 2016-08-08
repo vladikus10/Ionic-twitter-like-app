@@ -1,0 +1,11 @@
+<ion-view view-title="Following">
+  <ion-content class="padding">
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="user in users" type="item-text-wrap" href="#/tab/following/{{user.username}}">
+        <img src="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-8/256/User-blue-icon.png">
+        <h2>{{user.username}}</h2>
+        <p>Tweets: {{user.tweetsnum}} Followers: {{user.followersnum}} Following: {{user.followingnum}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

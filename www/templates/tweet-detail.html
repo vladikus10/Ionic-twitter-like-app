@@ -1,0 +1,41 @@
+<ion-view view-title="Tweet">
+  <ion-content class="padding">
+    <div class="list card">
+	  <div class="item item-avatar">
+		<img src="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-8/256/User-blue-icon.png">
+		<h2>{{tweet.userid}}</h2>
+		<p am-time-ago="tweet.posttime" am-prepocess="unix"></p>
+	  </div>
+	  <div class="item item-body">
+		<!--<img class="full-image" src="">-->
+		<p ng-bind-html="tweet.message"></p>
+		<p>
+		  <a href="#" class="subdued">{{tweet.favs}} Favorites</a>
+		  <a href="#" class="subdued">{{repliesNum}} Comments</a>
+		</p>
+		<button class="button button-positive" ng-click="remove('tweet')" ng-if="checkName()">
+			Delete
+		</button>
+		<button class="button icon ion-android-favorite" ng-click="favClick()" id="favButton"></button>
+	  </div>
+	</div>
+
+	<ion-list>
+      <ion-item class="item-avatar item-icon-right" ng-repeat="reply in replies" type="item-text-wrap">
+        <img src="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-8/256/User-blue-icon.png">
+        <h2>{{reply.userid}}</h2>
+        <p>{{reply.message}}</p>
+		<p am-time-ago="reply.posttime" am-prepocess="unix"></p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  <ion-footer-bar align-title="left" class="item-input-inset">
+      <label class="item-input-wrapper">
+        <i class="icon ion-ios7-search placeholder-icon"></i>
+        <input type="text" placeholder="Reply" id="replyMessage" ng-model="currentUser.message">
+      </label>
+      <button class="button button-positive" ng-click="postReply()">
+       Reply
+      </button>
+   </ion-footer-bar> 
+</ion-view>
